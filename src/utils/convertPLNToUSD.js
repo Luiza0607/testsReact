@@ -1,5 +1,19 @@
 export const convertPLNToUSD = (PLN) => {
-
+	if (typeof PLN === 'string' || PLN === undefined) {
+		return NaN;
+	}
+	if (typeof PLN === 'object') {
+		return 'Error';
+	}
+	if (typeof PLN === 'boolean') {
+		return 'Error';
+	}
+	if (typeof PLN === 'function') {
+		return 'Error';
+	}
+	if (PLN < 0) {
+		return '$0.00';
+	}
   const PLNtoUSD = PLN / 3.5;
   
   const formatter = new Intl.NumberFormat('en-US', {
